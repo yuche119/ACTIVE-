@@ -51,7 +51,7 @@ export default function App() {
   const [mqttConfig, setMqttConfig] = useState({
     url: 'ws://211.21.113.184:1884',
     username: 'superadmin',
-    password: 'password123'
+    password: 'superadmin123'
   });
   const [mqttStatus, setMqttStatus] = useState('未連線');
 
