@@ -68,15 +68,15 @@ export default function App() {
     let client: mqtt.MqttClient | null = null;
     
     let connectUrl = mqttConfig.url;
-    if (window.location.protocol === 'https:' && connectUrl.startsWith('ws://')) {
-      connectUrl = connectUrl.replace('ws://', 'wss://');
-    }
     
     try {
       client = mqtt.connect(connectUrl, {
         username: mqttConfig.username,
         password: mqttConfig.password,
+        clientId: `mqttjs_${Math.random().toString(16).substr(2, 8)}`,
         reconnectPeriod: 5000,
+        keepalive: 60,
+        clean: true,
       });
 
       client.on('connect', () => {
@@ -247,7 +247,7 @@ export default function App() {
             onClick={() => setIsSettingsOpen(true)}
             className="bg-white shadow-sm hover:shadow-md transition-shadow px-6 py-4 rounded-xl flex items-center gap-3 text-lg font-black text-primary border-2 border-gray-100"
           >
-            <span className="bg-blue-100 text-blue-500 p-1.5 rounded-lg">
+            <span className="bg-blue-100 text-blue-500 rounded-lg w-10 h-10 flex items-center justify-center">
               <span className="material-icons-round text-2xl">settings</span>
             </span>
             系統設定
@@ -256,10 +256,10 @@ export default function App() {
             onClick={() => setIsNameEditOpen(true)}
             className="bg-white shadow-sm hover:shadow-md transition-shadow px-6 py-4 rounded-xl flex items-center gap-3 text-lg font-black text-primary border-2 border-gray-100"
           >
-            <span className="bg-orange-100 text-orange-500 p-1.5 rounded-lg">
+            <span className="bg-orange-100 text-orange-500 rounded-lg w-10 h-10 flex items-center justify-center">
               <span className="material-icons-round text-2xl">edit</span>
             </span>
-            名稱編輯
+            名單設定
           </button>
         </div>
       </header>
