@@ -236,11 +236,23 @@ export default function App() {
   return (
     <div className="p-6 max-w-7xl mx-auto min-h-screen bg-gray-50/50">
       <header className="flex justify-between items-end mb-10">
-        <div>
-          <div className="bg-[#EFEBE0] text-[#6B4C3E] text-sm font-black px-3 py-1 inline-block rounded mb-2 tracking-wide">
-            ACTIVE VITALITY HUB
+        <div className="flex items-center gap-5">
+          {/* Logo 圖片 */}
+          <img 
+            src="./logo.png" 
+            alt="Logo" 
+            className="h-20 w-auto object-contain bg-white rounded-2xl shadow-sm p-2" 
+            onError={(e) => {
+              // 如果找不到圖片，顯示一個預設的圖示作為佔位符
+              e.currentTarget.src = 'https://placehold.co/100x100/EFEBE0/6B4C3E?text=LOGO';
+            }}
+          />
+          <div>
+            <div className="bg-[#EFEBE0] text-[#6B4C3E] text-sm font-black px-3 py-1 inline-block rounded mb-2 tracking-wide">
+              ACTIVE VITALITY HUB
+            </div>
+            <h1 className="text-5xl font-black text-primary tracking-tight">活力追蹤系統</h1>
           </div>
-          <h1 className="text-5xl font-black text-primary tracking-tight">活力追蹤系統</h1>
         </div>
         <div className="flex gap-4">
           <button 
