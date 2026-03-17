@@ -1,0 +1,5 @@
+{
+  "name": "活力追蹤系統",
+  "description": "A dashboard for tracking active residents and their vitality metrics.",
+  "requestFramePermissions": []
+}

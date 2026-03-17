@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #6B4C3E;
+  --color-secondary: #FFF8F0;
+  --color-background-light: #F9F4EF;
+  --color-background-dark: #1F1F1F;
+  --color-card-light: #FFFFFF;
+  --color-card-dark: #2D2D2D;
+  --color-accent-blue: #E0F2FE;
+  --color-accent-purple: #F3E8FF;
+  --color-accent-orange: #FFEDD5;
+  --color-text-subtle: #9CA3AF;
+  
+  --font-display: 'Noto Sans TC', sans-serif;
+  --font-sans: 'Noto Sans TC', sans-serif;
+
+  --animate-wiggle: wiggle 1.5s ease-in-out infinite;
+  --animate-float: float 3s ease-in-out infinite;
+  --animate-heartbeat: heartbeat 1.5s ease-in-out infinite;
+  --animate-walk: walk 1.5s ease-in-out infinite;
+  --animate-bounce-slight: bounce-slight 2s infinite;
+
+  @keyframes wiggle {
+    0%, 100% { transform: rotate(-8deg) scale(1); }
+    50% { transform: rotate(8deg) scale(1.1); }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+  @keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    15% { transform: scale(1.2); }
+    30% { transform: scale(1); }
+    45% { transform: scale(1.2); }
+    60% { transform: scale(1); }
+  }
+  @keyframes walk {
+    0%, 100% { transform: translateY(0) rotate(0); }
+    25% { transform: translateY(-3px) rotate(-10deg); }
+    50% { transform: translateY(0) rotate(0); }
+    75% { transform: translateY(-3px) rotate(10deg); }
+  }
+  @keyframes bounce-slight {
+    0%, 100% { transform: translateY(-10%); animation-timing-function: cubic-bezier(0.8,0,1,1); }
+    50% { transform: none; animation-timing-function: cubic-bezier(0,0,0.2,1); }
+  }
+}
+
+@layer base {
+  body {
+    font-family: 'Noto Sans TC', sans-serif;
+    @apply bg-background-light text-primary min-h-screen transition-colors duration-300;
+  }
+}
+
+@layer utilities {
+  .bg-grid-custom-blue {
+    background-image: linear-gradient(#E6F0FF 1px, transparent 1px), linear-gradient(to right, #E6F0FF 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+  .bg-grid-custom-purple {
+    background-image: linear-gradient(#F3E1FF 1px, transparent 1px), linear-gradient(to right, #F3E1FF 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+  .bg-grid-custom-orange {
+    background-image: linear-gradient(#FFE8D1 1px, transparent 1px), linear-gradient(to right, #FFE8D1 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+  .icon-footprint {
+    color: #94A3B8;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.1), -1px -1px 0px rgba(255,255,255,0.8);
+    filter: drop-shadow(0 2px 2px rgba(0,0,0,0.1));
+  }
+  .icon-heart {
+    color: #E15B5B;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.1), -1px -1px 0px rgba(255,255,255,0.8);
+    filter: drop-shadow(0 2px 3px rgba(225,91,91,0.3));
+  }
+  .avatar-container {
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: middle;
+    background-color: #FDF4E7;
+  }
+  .avatar-img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+}
